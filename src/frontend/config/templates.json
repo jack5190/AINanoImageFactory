@@ -1,0 +1,64 @@
+{
+  "templates": [
+    {
+      "id": "xhs-cover",
+      "name": "XHS Cover",
+      "category": "social",
+      "format": "Cover",
+      "ratio": "1:1",
+      "description": "Punchy social cover for lifestyle and brand posts.",
+      "prompt": "Design a {style} social cover for {industry} targeting {audience}. Highlight: {selling}. Use bold typography, layered cutouts, and a clean focal point. Size {size}. Language: {language}.",
+      "negative": "{forbidden}"
+    },
+    {
+      "id": "youtube-thumb",
+      "name": "YouTube Thumbnail",
+      "category": "video",
+      "format": "Thumbnail",
+      "ratio": "16:9",
+      "description": "High contrast thumbnail optimized for click-through.",
+      "prompt": "Create a {style} YouTube thumbnail for {industry}. Audience: {audience}. Feature a hero subject, dramatic lighting, and a headline that sells: {selling}. Size {size}. Language: {language}.",
+      "negative": "{forbidden}"
+    },
+    {
+      "id": "product-poster",
+      "name": "Product Poster",
+      "category": "product",
+      "format": "Poster",
+      "ratio": "4:5",
+      "description": "Launch poster with premium lighting and product focus.",
+      "prompt": "Design a {style} product poster for {industry}. Emphasize {selling}. Use studio lighting, soft gradients, and premium composition. Size {size}. Language: {language}.",
+      "negative": "{forbidden}"
+    },
+    {
+      "id": "course-cover",
+      "name": "Course Cover",
+      "category": "education",
+      "format": "Cover",
+      "ratio": "3:4",
+      "description": "Educational cover with clear hierarchy and credibility.",
+      "prompt": "Design a {style} course cover for {industry}. Audience: {audience}. Include clear title placement and structured layout highlighting {selling}. Size {size}. Language: {language}.",
+      "negative": "{forbidden}"
+    },
+    {
+      "id": "hero-banner",
+      "name": "Website Hero",
+      "category": "web",
+      "format": "Hero",
+      "ratio": "16:9",
+      "description": "Landing page hero with clean negative space.",
+      "prompt": "Create a {style} website hero visual for {industry} aimed at {audience}. Focus on {selling}, with calm negative space for headline text. Size {size}. Language: {language}.",
+      "negative": "{forbidden}"
+    },
+    {
+      "id": "commerce-card",
+      "name": "E-commerce Banner",
+      "category": "ecommerce",
+      "format": "Banner",
+      "ratio": "16:9",
+      "description": "Conversion-focused banner for ecommerce campaigns.",
+      "prompt": "Design a {style} ecommerce banner for {industry}. Highlight {selling} with product hero, price space, and bold promo accent. Size {size}. Language: {language}.",
+      "negative": "{forbidden}"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NanoImg API Key Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-wrap">
+      <header class="reveal" style="--delay: 0.1s">
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div>
+            <h1>API Key Lab</h1>
+            <p>Validate Google AI Studio credentials and test Nano Banana output.</p>
+          </div>
+        </div>
+        <nav>
+          <a href="index.html">Back to Studio</a>
+        </nav>
+      </header>
+
+      <section class="section reveal" style="--delay: 0.15s">
+        <div class="panel">
+          <h3 class="section-title">Runtime Configuration</h3>
+          <div class="form-grid">
+            <label>
+              API Key
+              <input type="password" id="demoApiKey" placeholder="Paste Google AI Studio key" />
+            </label>
+            <label>
+              Base URL
+              <input
+                type="text"
+                id="demoBaseUrl"
+                value="https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-fast-generate-001:predict"
+              />
+            </label>
+            <label>
+              Model
+              <input type="text" id="demoModel" value="imagen-4.0-fast-generate-001" />
+            </label>
+          </div>
+          <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap">
+            <button class="button" id="saveConfigBtn">Save Config</button>
+            <button class="button secondary" id="validateKeyBtn">Validate Key</button>
+          </div>
+          <p id="validateStatus" style="margin-top: 12px; font-size: 13px"></p>
+        </div>
+      </section>
+
+      <section class="section reveal" style="--delay: 0.2s">
+        <div class="panel">
+          <h3 class="section-title">Live Image Test</h3>
+          <label>
+            Prompt
+            <textarea id="demoPrompt">A hero banner showing a calm workspace, cinematic light, modern minimal style.</textarea>
+          </label>
+          <div class="form-grid" style="margin-top: 14px">
+            <label>
+              Negative Prompt
+              <input type="text" id="demoNegative" placeholder="Optional" />
+            </label>
+            <label>
+              Count
+              <input type="number" id="demoCount" min="1" max="4" value="2" />
+            </label>
+            <label>
+              Return Type
+              <select id="demoReturnType">
+                <option value="base64">Base64</option>
+                <option value="url">Data URL</option>
+              </select>
+            </label>
+          </div>
+          <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap">
+            <button class="button secondary" id="testGenerateBtn">Run Test</button>
+          </div>
+          <div class="output-grid" id="demoOutput" style="margin-top: 16px"></div>
+          <pre id="demoLog" style="margin-top: 16px; font-size: 12px; white-space: pre-wrap"></pre>
+        </div>
+      </section>
+    </div>
+
+    <script src="demo.js"></script>
+  </body>
+</html>

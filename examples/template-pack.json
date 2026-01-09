@@ -1,0 +1,14 @@
+{
+  "templates": [
+    {
+      "id": "brand-launch",
+      "name": "Brand Launch Poster",
+      "category": "product",
+      "format": "Poster",
+      "ratio": "4:5",
+      "description": "Bold launch poster with hero product.",
+      "prompt": "Design a bold launch poster for {industry} focused on {selling}. Use dramatic lighting, clean layout, and space for headline. Size {size}.",
+      "negative": "{forbidden}"
+    }
+  ]
+}

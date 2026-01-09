@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NanoImg Factory</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-wrap">
+      <header class="reveal" style="--delay: 0.1s">
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div>
+            <h1>NanoImg Factory</h1>
+            <p>Personal AI content factory for deliverable visuals</p>
+          </div>
+        </div>
+        <nav>
+          <a href="demo.html">API Key Lab</a>
+          <a href="docs/index.html">Docs</a>
+        </nav>
+      </header>
+
+      <section class="hero reveal" style="--delay: 0.15s">
+        <div>
+          <h2>From idea to deliverable assets in minutes.</h2>
+          <p>
+            Pick a template, describe the audience, and generate ready-to-ship visuals
+            for social posts, product launches, and course covers. The prompt copilot
+            turns brief inputs into production-grade text-to-image prompts.
+          </p>
+          <div class="quick-actions">
+            <button class="button" id="generatePromptBtn">Generate Prompt</button>
+            <button class="button secondary" id="generateImagesBtn">Batch Generate</button>
+            <button class="button ghost" id="downloadZipBtn">Download Delivery Pack</button>
+          </div>
+        </div>
+        <div>
+          <div class="panel">
+            <h3 class="section-title">Session Status</h3>
+            <div class="status-bar" id="statusBar">
+              <span class="status-dot" id="apiDot"></span>
+              <span id="apiStatus">API not checked</span>
+              <span>| Queue:</span>
+              <span id="queueStatus">Idle</span>
+              <span>| Images:</span>
+              <span id="imageCount">0</span>
+            </div>
+            <p>
+              Save API keys locally, switch models, and retry failed jobs without
+              leaving the browser. Use the API Key Lab to validate credentials.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" style="--delay: 0.2s">
+        <div class="panel">
+          <h3 class="section-title">Prompt Copilot</h3>
+          <div class="form-grid">
+            <label>
+              Industry
+              <input type="text" id="fieldIndustry" placeholder="e.g. Fitness coaching" />
+            </label>
+            <label>
+              Audience
+              <input type="text" id="fieldAudience" placeholder="e.g. Busy parents" />
+            </label>
+            <label>
+              Selling Points
+              <input type="text" id="fieldSelling" placeholder="e.g. 10-minute routines" />
+            </label>
+            <label>
+              Style
+              <select id="fieldStyle">
+                <option value="Cinematic studio">Cinematic studio</option>
+                <option value="Minimal product">Minimal product</option>
+                <option value="Playful collage">Playful collage</option>
+                <option value="Editorial luxe">Editorial luxe</option>
+              </select>
+            </label>
+            <label>
+              Size / Ratio
+              <select id="fieldSize">
+                <option value="1080x1080">1:1 (1080x1080)</option>
+                <option value="1280x720">16:9 (1280x720)</option>
+                <option value="1080x1920">9:16 (1080x1920)</option>
+                <option value="1600x900">16:9 (1600x900)</option>
+              </select>
+            </label>
+            <label>
+              Language
+              <select id="fieldLanguage">
+                <option value="English">English</option>
+                <option value="Simplified Chinese">Simplified Chinese</option>
+                <option value="Spanish">Spanish</option>
+              </select>
+            </label>
+            <label>
+              Forbidden Elements
+              <input type="text" id="fieldForbidden" placeholder="e.g. guns, nudity" />
+            </label>
+            <label>
+              Output Count
+              <input type="number" id="fieldCount" min="1" max="8" value="4" />
+            </label>
+          </div>
+          <label style="margin-top: 18px">
+            Generated Prompt
+            <textarea id="promptOutput" placeholder="Prompt will appear here"></textarea>
+          </label>
+        </div>
+      </section>
+
+      <section class="section reveal" style="--delay: 0.25s">
+        <div class="panel">
+          <h3 class="section-title">Template Market</h3>
+          <div class="kv" id="templateMeta"></div>
+          <div class="template-grid" id="templateGrid"></div>
+          <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap">
+            <button class="button secondary" id="exportTemplatesBtn">Export Templates</button>
+            <label class="button ghost" style="cursor: pointer">
+              Import Templates
+              <input type="file" id="importTemplatesInput" accept="application/json" hidden />
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" style="--delay: 0.3s">
+        <div class="panel">
+          <h3 class="section-title">Batch Queue</h3>
+          <div class="form-grid">
+            <label>
+              Concurrency
+              <input type="number" id="fieldConcurrency" min="1" max="4" value="2" />
+            </label>
+            <label>
+              Retry Count
+              <input type="number" id="fieldRetry" min="0" max="3" value="2" />
+            </label>
+            <label>
+              Return Type
+              <select id="fieldReturnType">
+                <option value="base64">Base64</option>
+                <option value="url">Data URL</option>
+              </select>
+            </label>
+            <label>
+              API Key (stored locally)
+              <input type="password" id="fieldApiKey" placeholder="Optional override" />
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" style="--delay: 0.35s">
+        <div class="panel">
+          <h3 class="section-title">Generated Assets</h3>
+          <div class="output-grid" id="outputGrid"></div>
+        </div>
+      </section>
+
+      <section class="section reveal" style="--delay: 0.4s">
+        <div class="panel">
+          <h3 class="section-title">History</h3>
+          <div class="history-list" id="historyList"></div>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
